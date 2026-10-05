@@ -1,0 +1,143 @@
+# /api/verify-proof -> response
+{
+  "success": true,
+  "action": "dna-test-40",
+  "nullifier": "0x1d8f3d5aa3853235002af54e93b741d46b9a08c4c5ba6a4b8dd12cfa8de81f79",
+  "created_at": "2026-02-27T04:52:35.363493+00:00",
+  "environment": "production",
+  "results": [
+    {
+      "identifier": "face",
+      "success": true,
+      "nullifier": "0x1d8f3d5aa3853235002af54e93b741d46b9a08c4c5ba6a4b8dd12cfa8de81f79"
+    }
+  ],
+  "message": "Proof verified successfully"
+}
+
+
+# devPortalPayload -> /api/verify-proof
+{
+  action: 'dna-test-40',
+  environment: 'production',
+  nonce: '0x00aa5233c2f04b7fc64a3e3bc928479b688c1437fd55fcfda27a4dae086f1648',
+  protocol_version: '3.0',
+  responses: [
+    {
+      identifier: 'face',
+      merkle_root: '0x207db262d95b0ea3f6c27bde14b0e953c869bfdd90025e3955e344df47a2b46',
+      nullifier: '0x1d8f3d5aa3853235002af54e93b741d46b9a08c4c5ba6a4b8dd12cfa8de81f79',
+      proof: '0x127e4a0535dd3d9beab17927b5d19aece1a71ad628372731f5bcfd62ab4038961327746a45373d65a74207812ce7cfac575122921093d8dd29dc56cd3cde911c04aabb2df2aa34ece464c197aaf61d0200ec2c4b967390ce625dbdfcd2cba0271647d119aca3d1fe463ebc14e4b6fb4bd983237b1c864673a75a7cd8a96d4c97122c986a3bb7f13e7f60ab90cc3eafd0cd4be790f5982ed524521609a4c5027b21cdb69e6791877ca2420643f5246cb7374de97ffe3fc8ec293050153a27a1ae0bcd8a80101c4de6c11a48dfbcc8988dbdb313d9c207c30ced2ae279e369e4c71b6db051e2c817d437572c6085fd432231139944f46081be3dfe2f822f377f53',
+      signal_hash: '0x00ea6969aab25caf7f6b2715841063a9777630eef0a5371909ce208d653bf1dd'
+    }
+  ]
+}
+
+# 2nd
+{
+  "success": true,
+  "action": "dna-test-40",
+  "nullifier": "0x1d8f3d5aa3853235002af54e93b741d46b9a08c4c5ba6a4b8dd12cfa8de81f79",
+  "created_at": "2026-02-27T04:52:35.363493+00:00",
+  "environment": "production",
+  "results": [
+    {
+      "identifier": "face",
+      "success": true,
+      "nullifier": "0x1d8f3d5aa3853235002af54e93b741d46b9a08c4c5ba6a4b8dd12cfa8de81f79"
+    }
+  ],
+  "message": "Proof verified successfully (nullifier reuse)"
+}
+{
+  action: 'dna-test-40',
+  environment: 'production',
+  nonce: '0x00d72d4ddb8bccd5fb59d38679e70bf933b742fe05327b9d55bf7f60edd1755b',
+  protocol_version: '3.0',
+  responses: [
+    {
+      identifier: 'face',
+      merkle_root: '0x207db262d95b0ea3f6c27bde14b0e953c869bfdd90025e3955e344df47a2b46',
+      nullifier: '0x1d8f3d5aa3853235002af54e93b741d46b9a08c4c5ba6a4b8dd12cfa8de81f79',
+      proof: '0x0a8b3494830fd8e52cf868ef812d4d677ac5f415530ee05d69ad584cab259a1a13de6a848012613c68cdb8676bc7deea82401a7ae369e6995424fd8512f1bcbb2abcb92339a11724cf8ee8e59e35e8872c80d688161838a75f1682fcd4920c5c1e646d001e5a91d6cf728999d4c4feedd510aa9e9339c97a0712c2b81ab87f2e05a9cfbea373e8ba0eb766394d39a656f3ad2f29d04d21e7f1521731f2067a9b03d4936779974fac36fbad439972283bcc5ffd60ef33bfc6b9731ecb29b19dbb2ed080ccc29874f336075d79abf97489e6258ce50bfd6ab4790411cac561988a12a1b199ceea97fc36f3762712731f81022ac60d6a953a12764964f745312e84',
+      signal_hash: '0x00f0baefee78641de6e7fdb9c49a9c261ed163f9d3ac641f8d76b11cd01d8886'
+    }
+  ]
+}
+
+#ORB
+{
+  "success": true,
+  "action": "dna-test-40",
+  "nullifier": "0x035180bdcd1f6f99151c76db2a59bceab2d310bbb9eed952a82ec753cf72b8b4",
+  "created_at": "2026-02-27T06:16:37.434801+00:00",
+  "environment": "production",
+  "results": [
+    {
+      "identifier": "orb",
+      "success": true,
+      "nullifier": "0x035180bdcd1f6f99151c76db2a59bceab2d310bbb9eed952a82ec753cf72b8b4"
+    }
+  ],
+  "message": "Proof verified successfully (nullifier reuse)"
+}
+{
+  action: 'dna-test-40',
+  environment: 'production',
+  nonce: '0x002cb5fd70be2409613f399e2662ce5c7866a0e954665aec1593b3a0ccccb5db',
+  protocol_version: '3.0',
+  responses: [
+    {
+      identifier: 'orb',
+      merkle_root: '0x91a157fed6f4a664c5b7903ed75576e6907ab9a4f971206f925364eb417e8dc',
+      nullifier: '0x035180bdcd1f6f99151c76db2a59bceab2d310bbb9eed952a82ec753cf72b8b4',
+      proof: '0x0b1cc387f73e42de035aa66610d866c7810bcbf53da1b26c23a7e5fbc23328ff1c13414c7faed05aca22c1ec6b37d7799adc17855e18835eb19ab75263ba1e2e180a57aa5182867e3bc9ae457cafe4da96baf3915b38cc00af7b6ffe87da86d219801be13d3d398a084f8bc461e9b308c0fdaa04de21ba327cc1b7dcfe9c5d98164f096ce1fd4ed686c3bd8e1d42597c62f72f166272d8019db94733b76cc33f25042653543dd79d66a79025c3ef7f4ee1adf9ca611e263e26469721535c7fa01c4bba6a91a53fdb21e2c5f5fccb9d59808bdc20c4f3ca9eb796a6ea3cadf4352873f66221b0261b425f59ff940401c6ab758f5d96e39d516ba933075cb3b3db',
+      signal_hash: '0x00315794289401b97859c13cd72859a6e866f5001e64d9374bca7d91eb3a9450'
+    }
+  ]
+}
+
+
+
+# MiniApp
+🚀 ~ POST ~ rpSignature: {
+  sig: '0x14a76f0e6e844e2796bba877da33088197b8d60ce2a758bff55f22ad1619b23c2e8e946520cbe8957c545c4f5a9404786faf334d411610e596798894e8b9a8031b',
+  nonce: '0x005eeb37d3e12e949d2813c4a964081d6c671a6c7674520003338f5c068b0775',
+  createdAt: 1772430706,
+  expiresAt: 1772431006
+}
+
+#  POST /api/rp-signature 200 in 301ms
+#  ✓ Compiled /api/verify-proof in 440ms
+# rp_id rp_d92f88e28de5c36f
+
+devPortalPayload: {
+  protocol_version: '3.0',
+  nonce: '0x005eeb37d3e12e949d2813c4a964081d6c671a6c7674520003338f5c068b0775',
+  action: 'dna-test-40',
+  responses: [
+    {
+      identifier: 'orb',
+      signal_hash: '0x001ecbe1323814cb6906d30f577f3a7b1330205e7fd68b88deb3a135cec97e3d',
+      proof: '0x340f05f0e78e13d291298052457d78d1f5501972bc5b692f452dcdb3ad9e5cfd18adbd1a6fabffd0b0250e62e7d4cb64f909b18211b259cb9e499682854c8af84c82289c011924112f2f399d9ada4ff21151c5e6a172d3522036c898ea0fb8c615897a852c7b7815dbe117facca44b541a8c10b9fc5aa8c1a54f1f8aff1aa9580000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+      merkle_root: '0x2af3212e55f8fe96c8c43c3bfd21954b808fc0cb3662eba0c3778f2a263e3464',
+      nullifier: '0x035180bdcd1f6f99151c76db2a59bceab2d310bbb9eed952a82ec753cf72b8b4'
+    }
+  ],
+  environment: 'production'
+}
+🚀 ~ POST ~ payload: {
+  success: true,
+  action: 'dna-test-40',
+  nullifier: '0x035180bdcd1f6f99151c76db2a59bceab2d310bbb9eed952a82ec753cf72b8b4',
+  created_at: '2026-02-27T06:16:37.434801+00:00',
+  environment: 'production',
+  results: [
+    {
+      identifier: 'orb',
+      success: true,
+      nullifier: '0x035180bdcd1f6f99151c76db2a59bceab2d310bbb9eed952a82ec753cf72b8b4'
+    }
+  ],
+  message: 'Proof verified successfully (nullifier reuse)'
+}

@@ -15,8 +15,9 @@ export async function POST(req: NextRequest) {
 
         const rpSignature = signRequest(
             action || "verify-human", // action
-            process.env.RP_SIGNING_KEY // your private key
+            // your private key
         );
+        console.log("🚀 ~ POST ~ rpSignature:", rpSignature)
 
         // Send to frontend
         return NextResponse.json({

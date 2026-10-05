@@ -13,14 +13,15 @@ export default function HomePage() {
       return;
     }
 
-    await MiniKit.commandsAsync.walletAuth({
+    const { finalPayload } = await MiniKit.commandsAsync.walletAuth({
       nonce: "hello123456",
       expirationTime: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000),
       notBefore: new Date(new Date().getTime() - 24 * 60 * 60 * 1000),
       statement: "This is my statement",
     });
+    console.log("🚀 ~ :22 ~ signInWithWallet ~ finalPayload:", finalPayload);
 
-    setMiniKitWalletAddress(MiniKit?.walletAddress ?? "");
+    // setMiniKitWalletAddress(MiniKit?.walletAddress ?? "");
   };
 
   useEffect(() => {

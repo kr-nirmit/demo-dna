@@ -19,5 +19,6 @@ export async function POST(request: Request): Promise<Response> {
     );
 
     const payload = await response.json();
+    console.log("🚀 ~ POST ~ payload:", payload)
     return NextResponse.json(payload, { status: response.status });
 }

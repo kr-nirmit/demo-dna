@@ -1,7 +1,7 @@
 'use client'
 
 // import { MiniKit } from "@worldcoin/minikit-js";
-// import HomePage from '../components/HomePage';
+import HomePage from '../components/HomePage';
 
 import Link from "next/link";
 
@@ -95,7 +95,7 @@ export default function Home() {
   return (
     <>
       <div>Home Page, Hello</div>
-      {/* <HomePage /> */}
+      <HomePage />
       <br />
       <br />
       <div style={{ fontSize: "20px", fontWeight: "bold", margin: "10px", padding: "10px", border: "2px solid black" }}>

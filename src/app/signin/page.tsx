@@ -2,6 +2,7 @@
 
 import { useMemo, useState, type ReactElement } from "react";
 import {
+    IDKit,
     documentLegacy,
     selfieCheckLegacy,
     IDKitRequestWidget,
@@ -58,6 +59,14 @@ async function fetchRpContext(action: string): Promise<RpContext> {
     }
 
     console.log(data);
+    const temp = {
+        rp_id: RP_ID,
+        nonce: data.nonce,
+        created_at: data.created_at,
+        expires_at: data.expires_at,
+        signature: data.sig,
+    }
+    console.log("🚀 ~ fetchRpContext ~ temp:", temp)
 
     return {
         rp_id: RP_ID,
@@ -116,6 +125,42 @@ export default function SigninPage(): ReactElement {
             setWidgetSignal(`demo-signal-${Date.now()}`);
             setWidgetRpContext(rpContext);
             setWidgetOpen(true);
+        } catch (error) {
+            setWidgetError(error instanceof Error ? error.message : "Unknown error");
+        }
+    };
+
+    const startMiniAppFlow = async () => {
+        setWidgetError(null);
+        setWidgetVerifyResult(null);
+
+        try {
+            // 1. Fetch RP Context
+            const rpContext = await fetchRpContext(action || "test-action");
+            console.log("Mini App rpContext", rpContext);
+
+            // orbLegacy, secureDocumentLegacy, documentLegacy, selfieCheckLegacy
+
+            // 2. Request verification
+            const request = await IDKit.request({
+                app_id: APP_ID as `app_${string}`,
+                action: action,
+                rp_context: rpContext,
+                allow_legacy_proofs: true,
+                environment: environment,
+            }).preset(selfieCheckLegacy({ signal: `demo-signal-${Date.now()}` }));
+            console.log("🚀 ~ startMiniAppFlow ~ request:", request)
+
+            const completion = await request.pollUntilCompletion();
+            console.log("Mini App completion", completion);
+
+            // 3. Verify Proof
+            if (completion.success && completion.result) {
+                const verified = await verifyProof(completion.result as IDKitResult);
+                setWidgetVerifyResult(verified);
+            } else {
+                setWidgetError("MiniApp verification failed or was cancelled.");
+            }
         } catch (error) {
             setWidgetError(error instanceof Error ? error.message : "Unknown error");
         }
@@ -269,6 +314,20 @@ export default function SigninPage(): ReactElement {
                             className="group relative flex justify-center py-4 px-4 border border-gray-300 text-sm font-medium rounded-xl text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black shadow-sm transition-all duration-200 hover:border-gray-400"
                         >
                             Verify with Selfie Check
+                        </button>
+                    </div>
+                </div>
+
+                <div className="pt-6 border-t border-gray-100">
+                    <h2 className="text-xl font-bold text-gray-900 mb-4 text-center">
+                        Mini App Integration
+                    </h2>
+                    <div className="flex justify-center">
+                        <button
+                            onClick={startMiniAppFlow}
+                            className="group relative w-full sm:w-1/2 flex justify-center py-4 px-4 border border-transparent text-sm font-medium rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-1"
+                        >
+                            Verify as MiniApp
                         </button>
                     </div>
                 </div>
